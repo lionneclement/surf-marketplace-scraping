@@ -9,7 +9,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2017",
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "allowSyntheticDefaultImports": true,
     "paths": {
       "*": ["src/*"]
