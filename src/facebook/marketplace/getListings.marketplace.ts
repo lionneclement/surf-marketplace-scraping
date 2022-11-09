@@ -45,20 +45,20 @@ export const getFacebookMarketplaceListings = async ({
 };
 
 export const listingsVariables = ({
-  limit = 24,
+  limit,
   query,
-  longitude = 115.16185,
-  latitude = -8.8200983,
-  radiusInKm = 60,
-  sortBy = 'CREATION_TIME_DESCEND',
+  longitude,
+  latitude,
+  radiusInKm,
+  sortBy,
   commerceSearchAndRpCtimeDays
 }: {
   query: string;
-  limit?: number;
-  longitude?: number;
-  latitude?: number;
-  radiusInKm?: number;
-  sortBy?: string;
+  limit: number;
+  longitude: number;
+  latitude: number;
+  radiusInKm: number;
+  sortBy: string;
   commerceSearchAndRpCtimeDays: string;
 }): object => ({
   buyLocation: {latitude, longitude},

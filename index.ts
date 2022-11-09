@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express, {Application} from 'express';
 import {facebookRoute} from './src/routes/facebook.route';
 
