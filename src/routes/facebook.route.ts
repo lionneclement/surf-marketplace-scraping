@@ -1,6 +1,6 @@
 import {Router} from 'express';
-import {facebookMarketPlace} from '../controllers/facebook.controller';
+import {facebookMarketplace} from '../controllers/facebook/facebook.controller';
 
 export const facebookRoute = Router();
 
-facebookRoute.get('/', facebookMarketPlace);
+facebookRoute.get('/', facebookMarketplace);
