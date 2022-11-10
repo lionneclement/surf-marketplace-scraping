@@ -1,10 +1,10 @@
 import {surboardSizeData} from '../data/surfboardSize.data';
 
-const sizeKeywords = ["'", '’', ',', '”', '"', '〝', '`', '‛', '‘', '〞', '·', '.', 'ft', 'feet', 'foot'];
+const sizeKeywords = ["'", '’', ',', '”', '"', '〝', '`', '‛', '‘', '〞', '·', '\\.', 'ft', 'feet', 'foot'];
 
 export const getSurfboardSize = ({title, description}: {title: string; description: string}): string | null => {
   const regexSize = new RegExp(
-    `([0-9]+(${sizeKeywords.join('|')}|${sizeKeywords.join(' |')}|${sizeKeywords.join('| ')})([0-9]+| [0-9]+| ))`,
+    `([0-9]+(${sizeKeywords.join('|')}|${sizeKeywords.join(' |')}|${sizeKeywords.join('| ')})([0-9]+| [0-9]+| |\n))`,
     'gm'
   );
 
@@ -18,7 +18,7 @@ export const getSurfboardSize = ({title, description}: {title: string; descripti
 };
 
 export const formatSize = (currentSize: string): string => {
-  const regexSize = new RegExp(`/(${sizeKeywords.join('|')})/g`);
+  const regexSize = new RegExp(`(${sizeKeywords.join('|')})`, 'gm');
 
   return currentSize.replace(/\s/g, '').replace(regexSize, "'").replace(/'$/g, "'0");
 };
