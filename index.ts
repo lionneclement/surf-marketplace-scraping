@@ -1,10 +1,10 @@
 import 'dotenv/config';
 import express, {Application} from 'express';
-import {facebookRoute} from './src/routes/facebook.route';
+import {router} from './src/routes/route';
 
 const app: Application = express();
 const port = 8001;
 
-app.use('/facebook', facebookRoute);
+app.use('/', router);
 
 app.listen(port, () => console.log(`Server is listening on port ${port}!`));

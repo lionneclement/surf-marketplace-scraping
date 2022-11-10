@@ -7,3 +7,24 @@ export const PRODUCT_BY_FACEBOOK_ID = gql`
     }
   }
 `;
+
+export const ALL_PRODUCTS = gql`
+  query AllProducts {
+    product {
+      id
+      facebook_id
+      title
+      description
+      url
+      location_text
+      latitude
+      longitude
+      formatted_amount
+      amount
+      currency
+      user_name
+      size
+      created_at
+    }
+  }
+`;

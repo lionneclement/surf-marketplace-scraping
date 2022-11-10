@@ -11,4 +11,9 @@ export interface AddOneProduct {
   currency: string;
   user_name: string;
   size: string | null;
+  created_at: string;
+}
+
+export interface AddOneProductVariables {
+  object: AddOneProduct;
 }
