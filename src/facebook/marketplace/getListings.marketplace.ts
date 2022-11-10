@@ -6,15 +6,15 @@ import {FacebookMarketPlaceListing} from '../../types/facebook/listing.type';
 export const getFacebookMarketplaceListings = async ({
   limit = 24,
   query,
-  longitude = 115.16185,
-  latitude = -8.8200983,
+  longitude,
+  latitude,
   radiusInKm = 60,
   sortBy = 'CREATION_TIME_DESCEND'
 }: {
   query: string;
   limit?: number;
-  longitude?: number;
-  latitude?: number;
+  longitude: number;
+  latitude: number;
   radiusInKm?: number;
   sortBy?: string;
 }): Promise<FacebookMarketPlaceListing['data']> => {
