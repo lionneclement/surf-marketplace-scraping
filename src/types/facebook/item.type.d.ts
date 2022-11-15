@@ -4,11 +4,11 @@ export interface FacebookMarketPlaceItem {
 
 export interface Data {
   viewer: Viewer;
-  node: Node;
+  node: Node | null;
 }
 
 export interface Viewer {
-  marketplace_product_details_page: MarketplaceProductDetailsPage;
+  marketplace_product_details_page: MarketplaceProductDetailsPage | null;
 }
 
 export interface MarketplaceProductDetailsPage {

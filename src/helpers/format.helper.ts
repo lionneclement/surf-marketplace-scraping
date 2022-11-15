@@ -1,7 +1,7 @@
-import {Product} from '../types/graphql/query/product.query';
 import {ProductForAlgolia} from '../types/algolia/product.type';
-import {FacebookMarketPlaceItem} from '../types/facebook/item.type';
+import {MarketplaceProductDetailsPage} from '../types/facebook/item.type';
 import {AddOneProduct} from '../types/graphql/mutation/product.mutation';
+import {Product} from '../types/graphql/query/product.query';
 import {getSurfboardSize} from './surfboardSize.helper';
 
 export const formatProductForDatabase = ({
@@ -9,12 +9,11 @@ export const formatProductForDatabase = ({
   id
 }: {
   id: number;
-  item: FacebookMarketPlaceItem['data'];
+  item: MarketplaceProductDetailsPage;
 }): AddOneProduct => {
   const {story, marketplace_listing_title, redacted_description, listing_price, location_text, creation_time} =
-    item.viewer.marketplace_product_details_page.target;
-  const {latitude, longitude} =
-    item.viewer.marketplace_product_details_page.marketplace_listing_renderable_target.location;
+    item.target;
+  const {latitude, longitude} = item.marketplace_listing_renderable_target.location;
   const {amount, currency, formatted_amount_zeros_stripped} = listing_price;
 
   const formattedProduct = {
