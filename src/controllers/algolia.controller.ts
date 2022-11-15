@@ -4,7 +4,7 @@ import {graphqlClient} from '../client/graphql.client';
 import {ALL_PRODUCTS} from '../graphql/query/product.query';
 import {formatProductForAlgolia} from '../helpers/format.helper';
 import {Product} from '../types/graphql/query/product.query';
-import {logError} from '../utils/Logger.util';
+import {logError} from '../utils/logger.util';
 
 export const algoliaSaveObjects = async (_: Request, response: Response): Promise<void> => {
   try {

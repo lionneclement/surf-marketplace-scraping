@@ -4,7 +4,7 @@ import {getFacebookMarketplaceItem} from '../../facebook/marketplace/getItem.mar
 import {UPDATE_SOLD, UPDATE_VISIBILITY} from '../../graphql/mutation/product.mutation';
 import {ALL_AVAIBLE_PRODUCTS} from '../../graphql/query/product.query';
 import {Product} from '../../types/graphql/query/product.query';
-import {logError} from '../../utils/Logger.util';
+import {logError} from '../../utils/logger.util';
 
 export const facebookMarketplaceCheckProducts = async (_: Request, response: Response): Promise<Response> => {
   try {
