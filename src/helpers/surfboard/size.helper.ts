@@ -1,4 +1,4 @@
-import {surboardSizeData} from '../data/surfboardSize.data';
+import {surboardSizeData} from '../../data/surfboardSize.data';
 
 const sizeKeywords = ['“', "'", '’', ',', '”', '"', '〝', '`', '‛', '‘', '〞', '·', '\\.', 'ft', 'feet', 'foot'];
 

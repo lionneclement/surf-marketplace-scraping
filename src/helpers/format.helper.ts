@@ -1,6 +1,7 @@
 import {MarketplaceProductDetailsPage} from '../types/facebook/item.type';
 import {AddOneProduct} from '../types/graphql/mutation/product.mutation';
-import {getSurfboardSize} from './surfboardSize.helper';
+import {getSurfboardSize} from './surfboard/size.helper';
+import {getSurfboardVolume} from './surfboard/volume.helper';
 
 export const formatProductForDatabase = ({
   item,
@@ -34,7 +35,8 @@ export const formatProductForDatabase = ({
     currency,
     user_name: story.actors[0].name,
     created_at: new Date(creation_time * 1000).toISOString(),
-    size: getSurfboardSize({title: marketplace_listing_title, description: redacted_description.text})
+    size: getSurfboardSize({title: marketplace_listing_title, description: redacted_description.text}),
+    volume: getSurfboardVolume({title: marketplace_listing_title, description: redacted_description.text})
   };
 
   return formattedProduct;

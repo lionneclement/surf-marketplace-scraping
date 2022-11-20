@@ -12,6 +12,7 @@ export interface AddOneProduct {
   user_name: string;
   size: string | null;
   created_at: string;
+  volume: number | null;
 }
 
 export interface AddOneProductVariables {
