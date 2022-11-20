@@ -8,17 +8,9 @@ export const ADD_ONE_PRODUCT = gql`
   }
 `;
 
-export const UPDATE_VISIBILITY = gql`
-  mutation UpdateVisibility($id: Int!, $is_visible: Boolean!) {
-    update_product_by_pk(pk_columns: {id: $id}, _set: {is_visible: $is_visible}) {
-      id
-    }
-  }
-`;
-
 export const UPDATE_SOLD = gql`
   mutation UpdateSold($id: Int!, $is_sold: Boolean!) {
-    update_product_by_pk(pk_columns: {id: $id}, _set: {is_sold: $is_sold}) {
+    update_product_by_pk(pk_columns: {id: $id}, _set: {is_sold: $is_sold, sold_at: "now()"}) {
       id
     }
   }

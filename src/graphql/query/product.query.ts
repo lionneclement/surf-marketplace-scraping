@@ -8,9 +8,9 @@ export const PRODUCT_BY_FACEBOOK_ID = gql`
   }
 `;
 
-export const ALL_AVAIBLE_PRODUCTS = gql`
+export const ALL_AVAILABLE_PRODUCTS = gql`
   query AllAvailableProducts {
-    product(where: {is_sold: {_eq: false}, is_visible: {_eq: true}}) {
+    product(order_by: {id: asc}, where: {is_sold: {_eq: false}}) {
       id
       facebook_id
       title

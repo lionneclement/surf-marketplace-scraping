@@ -3,7 +3,7 @@ export interface AddOneProduct {
   title: string;
   description: string;
   url: string;
-  location_text: string;
+  location_text: string | null;
   latitude: number;
   longitude: number;
   formatted_amount: string;

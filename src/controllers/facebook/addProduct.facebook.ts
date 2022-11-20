@@ -20,9 +20,11 @@ export const facebookMarketplaceAddProducts = async (_: Request, response: Respo
   try {
     const listings = await getFacebookMarketplaceListings({query, longitude, latitude});
     const items = listings.marketplace_search.feed_units.edges;
+    console.log('items length ', items.length);
 
     for (const {node} of items) {
       const id = Number(node.story_key);
+      console.log('id: ', id);
 
       // Check if product exists in database
       const productByFacebookId = await graphqlClient.query<{product: {id: number}[]}, {facebook_id: number}>({
@@ -32,6 +34,7 @@ export const facebookMarketplaceAddProducts = async (_: Request, response: Respo
       });
 
       if (productByFacebookId.data.product.length === 0) {
+        console.log('Product does not exist in database');
         const item = await getFacebookMarketplaceItem({id});
         const productDetails = item.viewer.marketplace_product_details_page;
         if (productDetails) {
@@ -42,7 +45,6 @@ export const facebookMarketplaceAddProducts = async (_: Request, response: Respo
             variables: {object: formattedProductForDatabase},
             fetchPolicy: 'no-cache'
           });
-
           const productPhotos = productDetails.target.listing_photos;
           const newProductId = newProduct.data!.product.id;
           for (const [index, {image}] of productPhotos.entries()) {

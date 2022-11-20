@@ -80,7 +80,7 @@ export interface Target {
   story: Story;
   redacted_description: RedactedDescription;
   creation_time: number;
-  location_text: LocationText;
+  location_text: LocationText | null;
   location_vanity_or_id: string;
   is_viewer_seller: boolean;
   listing_inventory_type: string;
@@ -159,6 +159,11 @@ export interface Target {
   if_should_show_complementary_listings: any;
   listing_photos: ListingPhoto[];
   pre_recorded_videos: any[];
+  formatted_price: FormattedPrice;
+}
+
+export interface FormattedPrice {
+  text: string;
 }
 
 export interface DeliveryData {
