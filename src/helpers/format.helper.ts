@@ -1,7 +1,5 @@
-import {ProductForAlgolia} from '../types/algolia/product.type';
 import {MarketplaceProductDetailsPage} from '../types/facebook/item.type';
 import {AddOneProduct} from '../types/graphql/mutation/product.mutation';
-import {Product} from '../types/graphql/query/product.query';
 import {getSurfboardSize} from './surfboardSize.helper';
 
 export const formatProductForDatabase = ({
@@ -30,22 +28,6 @@ export const formatProductForDatabase = ({
     user_name: story.actors[0].name,
     created_at: new Date(creation_time * 1000).toISOString(),
     size: getSurfboardSize({title: marketplace_listing_title, description: redacted_description.text})
-  };
-
-  return formattedProduct;
-};
-
-export const formatProductForAlgolia = ({product}: {product: Product}): ProductForAlgolia => {
-  const {facebook_id, created_at, latitude, longitude} = product;
-
-  const formattedProduct = {
-    objectID: facebook_id,
-    created_at_timestamp: new Date(created_at).getTime(),
-    _geoloc: {
-      lat: latitude,
-      lng: longitude
-    },
-    ...product
   };
 
   return formattedProduct;
