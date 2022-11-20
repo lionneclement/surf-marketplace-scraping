@@ -1,6 +1,6 @@
 import {surboardSizeData} from '../data/surfboardSize.data';
 
-const sizeKeywords = ["'", '’', ',', '”', '"', '〝', '`', '‛', '‘', '〞', '·', '\\.', 'ft', 'feet', 'foot'];
+const sizeKeywords = ['“', "'", '’', ',', '”', '"', '〝', '`', '‛', '‘', '〞', '·', '\\.', 'ft', 'feet', 'foot'];
 
 export const getSurfboardSize = ({title, description}: {title: string; description: string}): string | null => {
   const regexSize = new RegExp(
