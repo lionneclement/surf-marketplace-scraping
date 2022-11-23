@@ -1,0 +1,21 @@
+export const surfboardBrand: {name: string; query: string[]}[] = [
+  {name: 'channel islands', query: ['channel islands']},
+  {name: 'lost', query: ['lost']},
+  {name: 'firewire', query: ['firewire']},
+  {name: 'pyzel', query: ['pyzel']},
+  {name: 'chilli', query: ['chilli', 'chili']},
+  {name: 'mick fanning', query: ['mick fanning']},
+  {name: 'al merrick', query: ['merrick', 'merick', 'weirdo ripper']},
+  {name: 'dhd', query: ['dhd', 'black diamond']},
+  {name: 'redz', query: ['redz']},
+  {name: 'max taylor', query: ['max taylor']},
+  {name: 'js industries', query: ['js industries', 'js', 'forget me not']},
+  {name: 'haydenshapes', query: ['haydenshapes', 'hayden shapes', 'hypto krypto']},
+  {name: 'exodus', query: ['exodus']},
+  {name: 'native', query: ['native']},
+  {name: 'odysea', query: ['odysea']},
+  {name: 'torq', query: ['torq']},
+  {name: 'luke studer', query: ['luke studer', 'luke struder']},
+  {name: 'mick fanning', query: ['mick fanning']},
+  {name: 'hantoro', query: ['hantoro']}
+];

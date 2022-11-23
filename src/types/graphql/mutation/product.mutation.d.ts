@@ -13,6 +13,7 @@ export interface AddOneProduct {
   size: string | null;
   created_at: string;
   volume: number | null;
+  brand: string | null;
 }
 
 export interface AddOneProductVariables {
