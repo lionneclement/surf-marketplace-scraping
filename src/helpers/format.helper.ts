@@ -6,10 +6,12 @@ import {getSurfboardVolume} from './surfboard/volume.helper';
 
 export const formatProductForDatabase = ({
   item,
-  id
+  id,
+  productPhotos
 }: {
   id: number;
   item: MarketplaceProductDetailsPage;
+  productPhotos: {data: {url: string}[]};
 }): AddOneProduct => {
   const {
     story,
@@ -42,7 +44,8 @@ export const formatProductForDatabase = ({
     created_at: createdAt.toISOString(),
     size: getSurfboardSize({title, description}),
     volume: getSurfboardVolume({title, description}),
-    brand: getSurfboardBrand({title, description})
+    brand: getSurfboardBrand({title, description}),
+    product_photos: productPhotos
   };
 
   return formattedProduct;

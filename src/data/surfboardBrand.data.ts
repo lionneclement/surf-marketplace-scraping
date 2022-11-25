@@ -1,5 +1,5 @@
 export const surfboardBrand: {name: string; query: string[]}[] = [
-  {name: 'channel islands', query: ['channel islands']},
+  {name: 'channel islands', query: ['channel islands', 'channel island']},
   {name: 'lost', query: ['lost']},
   {name: 'firewire', query: ['firewire']},
   {name: 'pyzel', query: ['pyzel']},

@@ -14,6 +14,7 @@ export interface AddOneProduct {
   created_at: string;
   volume: number | null;
   brand: string | null;
+  product_photos: {data: {url: string}[]};
 }
 
 export interface AddOneProductVariables {
