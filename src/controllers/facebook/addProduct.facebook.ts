@@ -5,6 +5,7 @@ import {getFacebookMarketplaceListings} from '../../facebook/marketplace/getList
 import {ADD_ONE_PRODUCT} from '../../graphql/mutation/product.mutation';
 import {PRODUCT_BY_FACEBOOK_ID} from '../../graphql/query/product.query';
 import {formatProductForDatabase} from '../../helpers/format.helper';
+import {FacebookMarketPlaceListing} from '../../types/facebook/listing.type';
 import {AddOneProductVariables} from '../../types/graphql/mutation/product.mutation';
 import {downloadImage} from '../../utils/download.util';
 import {uploadFileOnCloud} from '../../utils/googleCloud.util';
@@ -17,8 +18,16 @@ export const facebookMarketplaceAddProducts = async (_: Request, response: Respo
     latitude = -8.8200983;
 
   try {
-    const listings = await getFacebookMarketplaceListings({query, longitude, latitude});
-    const items = listings.marketplace_search.feed_units.edges;
+    let items: FacebookMarketPlaceListing['data']['marketplace_search']['feed_units']['edges'] = [];
+    const sortBys: Array<
+      'CREATION_TIME_DESCEND' | 'DISTANCE_ASCEND' | 'BEST_MATCH' | 'PRICE_DESCEND' | 'PRICE_ASCEND'
+    > = ['CREATION_TIME_DESCEND', 'DISTANCE_ASCEND', 'BEST_MATCH', 'PRICE_DESCEND', 'PRICE_ASCEND'];
+    for (const sortBy of sortBys) {
+      console.log('sortBy: ', sortBy);
+      const listings = await getFacebookMarketplaceListings({query, longitude, latitude, sortBy});
+      items = [...items, ...listings.marketplace_search.feed_units.edges];
+    }
+
     console.log('items length ', items.length);
 
     for (const {node} of items) {

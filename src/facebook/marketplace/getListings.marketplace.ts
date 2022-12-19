@@ -16,7 +16,7 @@ export const getFacebookMarketplaceListings = async ({
   longitude: number;
   latitude: number;
   radiusInKm?: number;
-  sortBy?: string;
+  sortBy?: 'CREATION_TIME_DESCEND' | 'DISTANCE_ASCEND' | 'BEST_MATCH' | 'PRICE_DESCEND' | 'PRICE_ASCEND';
 }): Promise<FacebookMarketPlaceListing['data']> => {
   const now = new Date().getTime();
   const fullDaysSinceEpoch = Math.floor(now / 8.64e7);
